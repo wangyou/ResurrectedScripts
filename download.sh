@@ -66,16 +66,5 @@ mkdir -p $rrpath
 cd $rrpath
 
 # Now the script asks for which android version the user wants to download
-echo -e "${bldcya}Which version of android do you want to download?"
-echo -e "${bldblu}Please input the Android Version Value"
-echo -e "${bldblu}For Example: 5.1 for Android L"
-read rrversion
-if [ $rrversion -lt 6 ]
-then
-  echo -e "${bldgrn}Downloading Source Code for Android Lollipop"
-  repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b lollipop5.1
-elif [ $rrversion -gt 6 ]
-then
-  echo -e "${bldgrn}Downloading Source Code for Android Lollipop"
-  repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b lollipop5.1
-fi
+echo -e "${bldgrn}Downloading Source Code for Android Marshmallow"
+repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
