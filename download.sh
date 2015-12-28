@@ -22,26 +22,17 @@ tput setaf 1
 clear
 echo -e ""
 echo -e ""
-echo -e "______                                   _   _             "
-echo -e "| ___ \                                 | | (_)            "
-echo -e "| |_/ /___  ___ _   _ _ __ _ __ ___  ___| |_ _  ___  _ __  "
-echo -e "|    // _ \/ __| | | | '__| '__/ _ \/ __| __| |/ _ \| '_ \ "
-echo -e "| |\ \  __/\__ \ |_| | |  | | |  __/ (__| |_| | (_) | | | |"
-echo -e "\_| \_\___||___/\__,_|_|  |_|  \___|\___|\__|_|\___/|_| |_|"
-echo -e "                                                           "
-echo -e "                                                           "
-echo -e "    ______               _             ____  _____         "
-echo -e "    | ___ \             (_)           / ___||  _  |        "
-echo -e "    | |_/ /___ _ __ ___  ___  __     / /___ | |/' |        "
-echo -e "    |    // _ \ '_ ` _ \| \ \/ /     | ___ \|  /| |        "
-echo -e "    | |\ \  __/ | | | | | |>  <      | \_/ |\ |_/ /        "
-echo -e "    \_| \_\___|_| |_| |_|_/_/\_\     \_____(_)___/         "
-echo -e "                                                           "
+echo -e .d8888.  .o88b. d8888b. d888888b db       .d88b.   d888b  
+echo -e 88'  YP d8P  Y8 88  `8D   `88'   88      .8P  Y8. 88' Y8b 
+echo -e `8bo.   8P      88oobY'    88    88      88    88 88      
+echo -e   `Y8b. 8b      88`8b      88    88      88    88 88  ooo 
+echo -e db   8D Y8b  d8 88 `88.   .88.   88booo. `8b  d8' 88. ~8~ 
+echo -e `8888Y'  `Y88P' 88   YD Y888888P Y88888P  `Y88P'   Y888P  
+echo -e "
 echo -e ""
 echo -e ""
 echo -e ""
-echo -e ""
-echo -e "${bldgrn}  Welcome to the Resurrection Remix Source Code Downloader!"
+echo -e "${bldgrn}  Welcome to the Scrilog Downloader!"
 tput sgr0
 
 # Defines repo tools directory
@@ -59,11 +50,11 @@ fi
 clear
 
 # Once successfully detected, the script asks for the directory the user wishes to use
-echo -e "${bldcya}Where do you want to initialize the RR source code?"
-echo -e "${bldblu}For example: /home/$USER/rr or /media/$USER/yourdrive/rr"
-read rrpath
-mkdir -p $rrpath
-cd $rrpath
+echo -e "${bldcya}Where do you want to initialize the ROM source code?"
+echo -e "${bldblu}For example: /home/$USER/android/cm or /media/$USER/yourdrive/android"
+read dlpath
+mkdir -p $dlpath
+cd $dlpath
 
 # Now the script asks for which android version the user wants to download
 echo -e "${bldgrn}Downloading Source Code for Android Marshmallow"

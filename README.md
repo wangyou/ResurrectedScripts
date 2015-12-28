@@ -1,2 +1,2 @@
 # ScriLog
-Scripts and Logs used in building Resurrection Remix
+Scripts and Logs used in building most ROMs
