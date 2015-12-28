@@ -36,10 +36,10 @@ echo -e "${bldgrn}  Welcome to the Scrilog Downloader!"
 tput sgr0
 
 # Defines repo tools directory
-DIRECTORY="~/bin/repo"
+REPO=$(which repo)
 
 # Detects if repo is installed
-if [ ! -d "$DIRECTORY" ]
+if [ "$REPO" == "" ];
 then
 	echo -e "${bldred}Repo does not exist!"
 	echo -e "${bldred}Please run setup.sh FIRST!"
@@ -59,3 +59,4 @@ cd $dlpath
 # Now the script asks for which android version the user wants to download
 echo -e "${bldgrn}Downloading Source Code for Android Marshmallow"
 repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
+time repo sync --force-broken --force-sync --no-clone-bundle -qs
