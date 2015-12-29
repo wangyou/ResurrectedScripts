@@ -36,10 +36,10 @@ echo -e "${bldgrn}  Welcome to the Scrilog Downloader!"
 tput sgr0
 
 # Defines repo tools directory
-REPO=$(which repo)
+DIRECTORY="~/bin/repo"
 
 # Detects if repo is installed
-if [ "$REPO" == "" ];
+if [ ! -d "$DIRECTORY" ]
 then
 	echo -e "${bldred}Repo does not exist!"
 	echo -e "${bldred}Please run setup.sh FIRST!"
