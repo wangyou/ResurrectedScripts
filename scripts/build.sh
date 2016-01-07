@@ -32,39 +32,17 @@ echo -e "
 echo -e ""
 echo -e ""
 echo -e ""
-echo -e "${bldgrn}  Welcome to the Scrilog Downloader!"
+echo -e "${bldgrn}  Welcome to the Scrilog ROM Builder!"
 tput sgr0
 
-# Detects if the setup.sh file has been executed before the rest of the script starts
-File=.result.sh
-if grep -q 0 "$File";
-then
-	echo "The dependencies required have not been installed! Please the Setup Script FIRST!"
-	exit
-else
-fi
+echo Setting Up Build Environment...
+source build/envsetup.sh
 
-# Asks user which ROM they are building
-PS3='Which ROM are you trying to build/download?'
-options=("RR")
-select opt in "${options[@]}"
-do
+echo What is the nickname of your device?
+read device
 
-case $opt in
-	"RR")
-echo You have chosen ResurrectionRemix!
+echo Brunching $device ...
+time brunch $device
 
-	# Creates folder for RR Source
-	echo Downloading RR Source Code. This may take a moment...
-	mkdir rr
-	cd rr
-	repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
-	time repo sync --force-broken --force-sync --no-clone-bundle -qs
-	cp scripts/build.sh rr/build.sh
-	echo The RR Source Code has been succesfully downloaded into $PWD/rr
-	echo Be sure to run the build script in the directory! $PWD/rr/build.sh
-
-;;
-    *) echo invalid option;;
- esac
-done
+echo The Build Script has completed! Please review the build errors or obtain the flashable zip!
+exit
