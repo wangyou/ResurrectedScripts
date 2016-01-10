@@ -59,23 +59,22 @@ echo You have chosen ResurrectionRemix!
 	mkdir rr
 	cd rr
 	repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
-	time repo sync --force-broken --force-sync --no-clone-bundle -qs
+	time repo sync --force-broken --force-sync --no-clone-bundle --quiet
 	cp scripts/build.sh rr/build.sh
 	echo The RR Source Code has been succesfully downloaded into $PWD/rr
 	echo Be sure to run the build script in the directory! $PWD/rr/build.sh
 
 ;;
-case $opt in
 	"CM")
 echo You have chosen CyanogenMod!
 
 	# Creates folder for CM Source
 	echo Downloading CM Source Code. This may take a moment...
-	mkdir rr
-	cd rr
-	repo init -u https://github.com/CyanogenMod/platform_manifest.git -b marshmallow
-	time repo sync --force-broken --force-sync --no-clone-bundle -qs
-	cp scripts/build.sh rr/build.sh
+	mkdir cm
+	cd cm
+	repo init -u https://github.com/CyanogenMod/android.git -b cm-13.0
+	time repo sync --force-broken --force-sync --no-clone-bundle --quiet
+	cp scripts/build.sh cm/build.sh
 	echo The CM Source Code has been succesfully downloaded into $PWD/cm
 	echo Be sure to run the build script in the directory! $PWD/cm/build.sh
 
