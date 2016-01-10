@@ -4,5 +4,6 @@ Scripts and Logs used for building
 | Supported ROMS
 |:--------------------------
 | CyanogenMod
+| Resurrection Remix
 
-Android M supported
+Android M is the only supported OS
