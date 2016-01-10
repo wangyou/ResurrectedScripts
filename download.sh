@@ -46,7 +46,7 @@ fi
 
 # Asks user which ROM they are building
 PS3='Which ROM are you trying to build/download?'
-options=("RR")
+options=("RR" "CM")
 select opt in "${options[@]}"
 do
 
@@ -63,6 +63,21 @@ echo You have chosen ResurrectionRemix!
 	cp scripts/build.sh rr/build.sh
 	echo The RR Source Code has been succesfully downloaded into $PWD/rr
 	echo Be sure to run the build script in the directory! $PWD/rr/build.sh
+
+;;
+case $opt in
+	"CM")
+echo You have chosen CyanogenMod!
+
+	# Creates folder for CM Source
+	echo Downloading CM Source Code. This may take a moment...
+	mkdir rr
+	cd rr
+	repo init -u https://github.com/CyanogenMod/platform_manifest.git -b marshmallow
+	time repo sync --force-broken --force-sync --no-clone-bundle -qs
+	cp scripts/build.sh rr/build.sh
+	echo The CM Source Code has been succesfully downloaded into $PWD/cm
+	echo Be sure to run the build script in the directory! $PWD/cm/build.sh
 
 ;;
     *) echo invalid option;;
