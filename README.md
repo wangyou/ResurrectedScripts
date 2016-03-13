@@ -1,4 +1,4 @@
-# Scrilog v2.0
+# Scrilog v2.4
 Script used for building supported ROMs
 
 | Supported ROMs
