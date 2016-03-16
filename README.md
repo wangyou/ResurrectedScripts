@@ -17,8 +17,8 @@ cd ~/android/rr/
 ./build.sh
 ```
 The build script will then prompt you for 2 types of information.
-	* You device codename (For eg.: hammerhead, huashan, angler)
-	* CPU Thread for building (This number depends on your PC specifcations)
+- You device codename (For eg.: hammerhead, huashan, angler)
+- CPU Thread for building (This number depends on your PC specifcations)
 
 ###### Credits
 - @akhilnarang
