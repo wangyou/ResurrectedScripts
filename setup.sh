@@ -56,7 +56,7 @@ schedtool libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib l
 lib32readline-gplv2-dev gcc-multilib liblz4-* pngquant ncurses-dev texinfo gcc gperf patch libtool \
 automake g++ gawk subversion expat libexpat1-dev python-all-dev binutils-static libgcc1:i386 bc libcloog-isl-dev \
 libcap-dev autoconf libgmp-dev build-essential gcc-multilib g++-multilib pkg-config libmpc-dev libmpfr-dev lzma* \
-liblzma* w3m phablet-tools android-tools-adb screen maven
+liblzma* w3m phablet-tools android-tools-adb screen maven tmux
 tput setaf 3
 	echo  
 	echo Settings up USB Ports...
@@ -70,12 +70,19 @@ tput setaf 2
 	adb kill-server
 	sudo killall adb
 tput setaf 3
+	echo Setting up ccache
+	git clone https://git.samba.org/ccache
+	cd ccache
+	./configure
+	make
+	sudo cp -v ./ccache /usr/bin/ccache
+	echo "export USE_CCACHE=1" >> ${HOME}/.bashrc
 	echo  
-	echo Updating repo tool to the latest version...
+	echo Downloading repo tool, if already present will update to the latest version...
 	echo  
 	sleep 2
 tput setaf 2
-mkdir -p ~/bin
+	[ ! -d "${HOME}/bin" ] || mkdir -p ${HOME}/bin
 	curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 	chmod a+x ~/bin/repo
 clear
@@ -106,13 +113,16 @@ clear
 	echo  
 	sleep 2
 tput setaf 2
-	mkdir -p ~/android/rr
-	cp build.sh ~/android/rr/build.sh
-	cd ~/android/rr
-	repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
+	echo -e "${bldcya}Enter the path where source code should be downloaded.\nDefault is ${HOME}/rr"
+	read rrpath;
+	[ ! -d "$rrpath" ] || mkdir -p $rrpath
+	cd $rrpath
+	repo init -u git://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
 	time repo sync --force-broken --force-sync --no-clone-bundle --quiet
 	echo  
 	echo  
-	echo -e "${bldcya}The RR Source Code has been downloaded into ~/android/rr"
-	echo -e "${bldcya}The build script is located in ~/android/rr/build.sh"
+	echo -e "${bldcya}The RR Source Code has been downloaded into ${rrpath}"
+	echo -e "${bldcya}You can now run the build script in ${rrpath}"
+	echo -e "${bldcya}Please remember to run ccache -M 40 to set 40gb of ccache, before you start your first build :'D"
+	ehoc -e "${bldcya}This value can be shifted up/down a bit to your liking"
 exit
