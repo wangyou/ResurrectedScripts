@@ -45,23 +45,20 @@ tput setaf 2
 	source build/envsetup.sh
 tput setaf 3
 	echo  
+	if [ ! $1 ];
+	then
 	echo What is your device code name?
-tput setaf 4
+	tput setaf 4
 	read device
+	else
+	device=$1
+	fi
 tput setaf 3
-	echo -e "You are have chosen to build for ${bldred}$device" 
-	echo  
-tput setaf 3
-	echo  
-	echo How many CPU threads do you want to build with?
-tput setaf 4
-	read thread
-tput setaf 3
-	echo -e "You have chosen to build RR utilizing ${bldred}$thread CPU thread/s"
+	echo -e "You have chosen to build ResurrectionRemix OS for ${bldred} ${device}"
 	echo  
 	echo -e "${bldvlt}Building Resurrection Remix OS now!"
 	echo  
 	sleep 3
 tput setaf 2
-	brunch $device userdebug -j$thread
+	lunch cm_$device-userdebug && time mka bacon
 exit
