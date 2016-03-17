@@ -1,9 +1,25 @@
-# Scrilog v5.0-staging
+# Resurrected Scripts
 Script used for building Resurrection Remix
-> Android M is the only supported version for scrilog
+> Android M is the only supported version for Resurrected Scripts
 
-## How to build with Scrilog:
-Simply run the setup script
+Module  | Recommended Requirements
+-------:|:-------------------------
+CPU     | I5 3570 or FX 8350
+GPU     | Not applicable
+Memory  | 4GB RAM
+Storage | 150GB HDD
+Internet| 2MBps download speed
+Display | Note applicable
+OS      | x64 Linux/Debian based OS
+
+Sections     | Estimated Time
+------------:|:-------------------------
+Install      | < 1 hour
+Download     | < 2 hours
+Building     | < 2 hours
+
+## How to build with Resurreected Scripts:
+Simply run the setup script to get your PC ready
 ```
 cd ~/
 git clone git://github.com/furrydaus/scrilog
@@ -15,32 +31,71 @@ After setting up, cd to the source code folder directory and run the build scrip
 cd <path/to/rr/source> [Default is /home/username/rr]
 ./build.sh
 ```
-The build script will then prompt you for 2 types of information.
-- You device codename (For eg.: hammerhead, huashan)
-- CPU Thread for building (This number depends on your PC specifcations)
-
-Once you have input the 2 required information, RR will start building for your device. It will either fail and require you to fix the errors, or it will be successful.
+The build script will then prompt you for your device codename you wish to build.
+For Example; Hammerhead, Huashan
+Once you have input the device codename, RR will start building for your device.
+It will either fail and require you to fix the errors, or it will be successful.
 
 If the build was successful, the zip file will be located in:
 ```
-<path/to/rr/source>/out/target/product/(device-codename)/ResurrectionRemix-M-(version)-(date)-(device-codename).zip
+<path/to/rr/source>/out/target/product/<device-codename>/ResurrectionRemix-M-<version>-<date>-<device-codename>.zip
 ```
 
-Incase you have a 2nd hard drive or ssd or something, it is recommended to store the output of build there.
-This will result in a faster compilation, as read and write operations will occur simultaneously on the same drive, but on different ones
-To do so, assuming your 2nd drive is mounted at /disk2, add this to your .bashrc or other similar file
+### Tips and Tricks
+1. Use Screen
+When you build RR, you might get disconnected from your SSH session or someone may close your Terminal Session. By using screen, RR will continue
+building in the background regardless if your SSH or terminal session is closed unexpectedly. To open a screen session type;
+```
+screen -S android
+```
+To diconnect a screen session, press CTRL+A+D.
+To connect to screen session;
+```
+screen -R android
+```
+To connect to a session that has closed unexpectedly;
+```
+screen -D -R android
+```
+To close a screen session;
+```
+screen -X -S android kill
+```
+To list screen sessions;
+```
+screen -ls
+```
+To learn more about screen and how it can help you, visit: https://www.rackaid.com/blog/linux-screen-tutorial-and-how-to/ or http://www.computerhope.com/unix/screen.htm
+
+2. Store your builds in a seperate drive for faster compilation
+This results in the Read and Write operations to run simultaneously. Hard Drives benefit from this as it places less stress on the drive head.
+Generall, all SATA drives benefit as data can only be transferred in one direction at the same time frames. More SATA ports mean more lanes for
+data to flow.
+
+To do so, you will need to find where your 2nd drive is mounted in Linux.
+Assuming your 2nd drive is mounted at /disk2, add this to your .bashrc or other similar file
 ```
 export OUT_DIR_COMMON_BASE=/out
 ```
-Make sure your user has write permissions to that of course :P
-In this case your build output will be at
+Make sure your user has write permissions to that of course.
+
+Instead of the old build output, it will be here instead:
 /out/<folder-name-of-rr-source>/target/product/<device>/ResurrectionRemix-M-(version)-(date)-(device-codename).zip
 
-Incase you have one more drive [LOL], 
+3. Store CCache in a seperate drive for faster compilation
+The explanation here is similar to the previous trick although CCache is a bunch of compiled data that will be frequently accessed by the build
+generator to cut down build times. By placing CCache in a seperate directory, again, the data will be accessed faster and more efficiently.
 ```
 export CCACHE_DIR=/disk3
 ```
-Your ccache will be stored in there then :)
+Your ccache will be stored in there then. If you want to clear the ccache, just simply delete the folder
 
-Incase its an unofficial build, feel free to contact one of the team [you can find them in the Google+ community] to make it official :'D
-Enjoy! :'D
+#### How to make unofficial builds Official
+Incase you are building an unofficial build, and want to make it official, feel free to contact one of the team members
+[you can find them in the Google+ community]. Namely, Atlan KRK, Varun Date and Akhil Narang.
+Enjoy! :D
+
+##### Links
+1. Resurrection Remix Community: https://plus.google.com/communities/109352646351468373340
+2. Resurrection Remix Source Code: https://github.com/ResurrectionRemix
+3. Resurrection Remix Device Code: https://github.com/ResurrectionRemix-Devices
