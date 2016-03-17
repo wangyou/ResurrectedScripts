@@ -4,34 +4,34 @@ Script used for building Resurrection Remix
 
 Module  | Recommended Requirements
 -------:|:-------------------------
-CPU     | I5 3570 or FX 8350
+CPU     | Anything decent, Akhil used a pentium too :P
 GPU     | Not applicable
 Memory  | 4GB RAM
 Storage | 150GB HDD
-Internet| 2MBps download speed
-Display | Note applicable
-OS      | x64 Linux/Debian based OS
+Internet| Anything decent, the more the better, you have to download ~20GB
+Display | Not applicable
+OS      | x64 Linux based OS [This guide works for ubuntu/debian/mint/others with aptitude as package manager][Will add Arch Linux Script soon]
 
 Sections     | Estimated Time
 ------------:|:-------------------------
 Install      | < 1 hour
-Download     | < 2 hours
-Building     | < 2 hours
+Download     | Depends on net connection. 100mbit/s+ <30mins. 5mbit/s 6-8 hours
+Building     | Depends on PC specs, presence of a Solid State Drive, RAM, etc
 
 ## How to build with Resurreected Scripts:
 Simply run the setup script to get your PC ready
 ```
 cd ~/
-git clone git://github.com/furrydaus/scrilog
-cd scrilog
+git clone git://github.com/ResurrectionRemix/ResurrectedScripts.git -b marshmallow scripts
+cd scripts
 ./setup.sh
 ```
 After setting up, cd to the source code folder directory and run the build script
 ```
 cd <path/to/rr/source> [Default is /home/username/rr]
-./build.sh
+bash build.sh <device>
 ```
-The build script will then prompt you for your device codename you wish to build.
+The build script will then prompt you for your device codename you wish to build, incase you didn't pass it as a parameter
 For Example; Hammerhead, Huashan
 Once you have input the device codename, RR will start building for your device.
 It will either fail and require you to fix the errors, or it will be successful.
@@ -92,7 +92,7 @@ Your ccache will be stored in there then. If you want to clear the ccache, just 
 
 #### How to make unofficial builds Official
 Incase you are building an unofficial build, and want to make it official, feel free to contact one of the team members
-[you can find them in the Google+ community]. Namely, Atlan KRK, Varun Date and Akhil Narang.
+[you can find them in the Google+ community]. Namely, Atlan KRK, Varun Date and Akhil Narang, Brian Koluch, Andres Pascual
 Enjoy! :D
 
 ##### Links
