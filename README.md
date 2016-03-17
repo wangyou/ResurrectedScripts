@@ -4,7 +4,7 @@ Script used for building Resurrection Remix
 
 Module  | Recommended Requirements
 -------:|:-------------------------
-CPU     | Anything decent, Akhil used a pentium too :P
+CPU     | 64bit CPU with at least 2 cores
 GPU     | Not applicable
 Memory  | 4GB RAM
 Storage | 150GB HDD
@@ -15,8 +15,14 @@ OS      | x64 Linux based OS [This guide works for ubuntu/debian/mint/others wit
 Sections     | Estimated Time
 ------------:|:-------------------------
 Install      | < 1 hour
-Download     | Depends on net connection. 100mbit/s+ <30mins. 5mbit/s 6-8 hours
-Building     | Depends on PC specs, presence of a Solid State Drive, RAM, etc
+Download     | Depends on net connection. 100mbit/s+ (~40 Minutes), 5mbit/s (6-8 hours)
+Building     | Depends on PC specifications
+
+- If you're looking to upgrade your computer for better build times, consider these few pointers:
+ 1. Better CPU: A processor with more powerful Single Core processing can process code faster. We recommend getting intel CPUs as they         are better in that aspect. Anything higher than the i5-3570 can build in <2 hours
+ 2. SSD or HDD with higher RPM: This allows faster R/W Speeds and results in faster build times. Its better to always get more drives         such that there is less stress on the drive and theres more data flow per SATA connector
+ 3. Bigger RAM: More RAM allows more instructions to be sent over to the CPU and will allow the CPU to be more efficient. It also             helps if you want to use applications whilst building and not ressult in build failures caused by insufficient memory
+ 4. Faster Internet: Nowadays internet connections are around 2mbps+ There is not a need to upgrade your internet that quick. If you          have a tendency of re-downloading the full source code or downloading source code for other ROMs, consider a faster internet connection.
 
 ## How to build with Resurreected Scripts:
 Simply run the setup script to get your PC ready
