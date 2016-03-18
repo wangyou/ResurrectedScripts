@@ -119,11 +119,14 @@ clear
 	echo -e "${bldcya}      Downloading Source Code! "
 	echo  
 	sleep 2
+tput setaf 3
+	echo -e "${bldcya}Enter the path where source code should be downloaded in full format.\nDefault is ${HOME}/rr"
+	read rrpath
 tput setaf 2
-	echo -e "${bldcya}Enter the path where source code should be downloaded.\nDefault is ${HOME}/rr"
-	read rrpath;
-	[ ! -d "$rrpath" ] || mkdir -p $rrpath
+	mkdir -p $rrpath
+	cp build.sh $rrpath/build.sh
 	cd $rrpath
+	echo  
 	repo init -u git://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
 	time repo sync --force-broken --force-sync --no-clone-bundle --quiet
 	echo  
