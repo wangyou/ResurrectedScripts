@@ -70,19 +70,26 @@ tput setaf 2
 	adb kill-server
 	sudo killall adb
 tput setaf 3
+	echo  
 	echo Setting up ccache
-	git clone https://git.samba.org/ccache
+	echo 
+tput setaf 2 	
+	git clone https://git.samba.org/ccache.git
 	cd ccache
+	./autogen.sh
 	./configure
 	make
 	sudo cp -v ./ccache /usr/bin/ccache
 	echo "export USE_CCACHE=1" >> ${HOME}/.bashrc
 	echo  
+tput setaf 3
 	echo Downloading repo tool, if already present will update to the latest version...
+tput setaf 2
+	cd ..
 	echo  
 	sleep 2
-tput setaf 2
-	[ ! -d "${HOME}/bin" ] || mkdir -p ${HOME}/bin
+	mkdir -p ~/bin
+	PATH=~/bin:$PATH
 	curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 	chmod a+x ~/bin/repo
 clear
