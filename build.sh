@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Make sure you're in rr source dir
+[ -d ".repo" ] || exit 1
 # Specify colors utilized in the terminal
 normal='tput sgr0'              # White
 red='tput setaf 1'              # Red

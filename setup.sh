@@ -135,4 +135,5 @@ tput setaf 2
 	echo -e "${bldcya}You can now run the build script in ${rrpath}"
 	echo -e "${bldcya}Please remember to run ccache -M 40 to set 40gb of ccache, before you start your first build :D" 
 	echo -e "${bldcya}This value can be shifted up/down a bit to your liking" 
+	cd $rrpath
 exit
