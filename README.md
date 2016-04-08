@@ -10,7 +10,9 @@ Memory  | 4GB RAM
 Storage | 150GB HDD
 Internet| Anything decent, the more the better, you have to download ~20GB
 Display | Not applicable
-OS      | x64 Linux based OS [This guide works for ubuntu/debian/mint/others with aptitude as package manager][Will add Arch Linux Script soon]
+OS      | x64 Linux based OS* [This guide works for ubuntu/debian/mint/others with aptitude as package manager][Will add Arch Linux Script soon]
+
+\* Currently tested on: **Linux Mint 17.3**, **Ubuntu 14.04 LTS**
 
 Sections     | Estimated Time
 ------------:|:-------------------------
