@@ -74,7 +74,7 @@ tput setaf 3
 	echo Setting up ccache
 	echo 
 tput setaf 2 	
-	git clone https://git.samba.org/ccache.git
+	git clone https://github.com/ccache/ccache.git -b master 	
 	cd ccache
 	./autogen.sh
 	./configure
@@ -123,12 +123,12 @@ tput setaf 3
 	echo -e "${bldcya}Enter the path where source code should be downloaded in full format.\nDefault is ${HOME}/rr"
 	read rrpath
 tput setaf 2
-	mkdir -p $rrpath
+	mkdir $rrpath
 	cp build.sh $rrpath/build.sh
 	cd $rrpath
 	echo  
-	repo init -u git://github.com/ResurrectionRemix/platform_manifest.git -b marshmallow
-	time repo sync --force-broken --force-sync --no-clone-bundle --quiet
+	repo init -u git://github.com/wangyou/platform_manifest.git -b marshmallow
+	time repo sync -j16 --force-broken --force-sync --no-clone-bundle --quiet
 	echo  
 	echo  
 	echo -e "${bldcya}The RR Source Code has been downloaded into ${rrpath}"
